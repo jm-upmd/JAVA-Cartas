@@ -1,5 +1,5 @@
 Este programa permite jugar a CartaMayorMenor, un sencillo juego de cartas que es descritro en la sentencia de salida al comienzo del método main.
-Después de que el usuario juegue varias partidas se emite la puntuación media.
+Después de que el usuario juegue varias partidas se emite la puntuación media. 
 
 Se modeliza a traves de 2 clases las entidades:
 
