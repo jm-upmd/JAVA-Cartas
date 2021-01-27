@@ -1,6 +1,8 @@
 
 import java.util.Scanner;
 
+import javax.sound.sampled.Port;
+
 
 
 /**
@@ -30,7 +32,6 @@ public class CartaMayorOMenor {
 	                               //      sumaDePuntuaciones dividido entre partidasJugadas.
 	      char otraPartida;       // Guarda la respuesta del usuario cuando se le pregunta si 
 	                               //   quiere jugar otra partida.
-	                              
 	      
 	      do {
 	         int puntuacionPartida;        // Puntuación de la partida
@@ -60,6 +61,22 @@ public class CartaMayorOMenor {
 	      Baraja baraja = new Baraja();  // Obtiene una nueva barajas de cartas, y 
 	                                 //   y guarda una referencia a ella en la
 	                                 //   variable, baraja.
+	      Mano mano = new Mano();
+	      baraja.barajar();
+	      for (int i = 1; i<= 10; i++)
+	    	  mano.cogeCarta(baraja.extraeCarta());
+	      
+	      for(int i = 0; i <= mano.dameNumCartas()-1; i++) {
+	    	  System.out.println(mano.dameCarta(i).toString());
+	      }
+	      System.out.println("Ordenadas por palo y valor");
+	      
+	      mano.ordenaPorPalo();
+	      for(int i = 0; i <= mano.dameNumCartas()-1; i++) {
+	    	  System.out.println(mano.dameCarta(i).toString());
+	      }
+	      
+	      System.exit(0);
 	      
 	      Carta cartaActual;  // La carta actual, que el usuario ve.
 

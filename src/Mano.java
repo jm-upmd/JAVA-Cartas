@@ -86,14 +86,14 @@ public class Mano {
      * Nota: el as tiene el valor menor, 1.
      */
     public void ordenaPorPalo() {
-        ArrayList<Carta> nuevaMano = new ArrayList<Carta>();
+        ArrayList<Carta> nuevaMano = new ArrayList<Carta>(mano.size());
         while (mano.size() > 0) {
             int pos = 0;  // Posicion de la carta menor.
             Carta c = mano.get(0);  // Carta menor.
             for (int i = 1; i < mano.size(); i++) {
                 Carta c1 = mano.get(i);
                 if ( c1.getPalo() < c.getPalo() ||
-                        (c1.getPalo() == c.getPalo() && c1.getValor() < c.getPalo() ) ){
+                        (c1.getPalo() == c.getPalo() && c1.getValor() < c.getValor())){
                     pos = i;
                     c = c1;
                 }
@@ -108,7 +108,7 @@ public class Mano {
      * Ordena cartas de la mano valor y palo. 
      */
     public void ordenaPorValor() {
-        ArrayList<Carta> nuevaMano = new ArrayList<>();
+        ArrayList<Carta> nuevaMano = new ArrayList<>(mano.size());
         while (mano.size() > 0) {
             int pos = 0;  // Posición de la carta mínima.
             Carta c = mano.get(0);  // Carta mínima.
