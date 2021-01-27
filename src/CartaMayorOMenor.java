@@ -45,9 +45,9 @@ public class CartaMayorOMenor {
 	      
 	      System.out.println();
 	      System.out.println("Has jugado " + partidasJugadas + " partidas.");
-	      System.out.printf("Tu puntuacón media es %1.3f.\n", puntuacionMedia);
+	      System.out.printf("Tu puntuacón media es %.3f.\n", puntuacionMedia);
 	   
-	   }  // end main()
+	   }  // fin main()
 	   
 
 	   /**
@@ -63,19 +63,19 @@ public class CartaMayorOMenor {
 	      
 	      Carta cartaActual;  // La carta actual, que el usuario ve.
 
-	      Carta siguienteCarta;   // La siguiente carta de la barja.  El usuario intenta
-	                             //    adivinar si es mayor or menor que la carta actua.
+	      Carta siguienteCarta;   // La siguiente carta de la baraja.  El usuario intenta
+	                             //  adivinar si es mayor or menor que la carta actua.
 	                      
 
 	      int prediccionCorrecta ;  // El número de predicciones correctas que
-	                            //   el usuario ha realizado. Al final del partida
-	                            //   esta será la puntuación del usuario.
+	                            	// el usuario ha realizado al final de la partida.
+	                               //  Esta será la puntuación del usuario.
 
-	      char prediccion;   // Predicción del usuario.  'G' si usuario predice que
-	                    //   la siguiente carta será mahyor, 'P' si el usuario predice
-	                    //   que esta será menor.
+	      char prediccion;   	// Predicción del usuario.  'G' si usuario predice que
+	      						// la siguiente carta será más Grande, 'P' si el usuario predice
+	                    		//   que esta será más Pequeña.
 	      
-	      baraja.barajar();  // Mezcla las cartas de la braja de forma aleatoria
+	      baraja.barajar();  // Mezcla las cartas de la baraja de forma aleatoria
 	      					//antes de comenzar una nueva partida.
 	                       
 
@@ -85,7 +85,7 @@ public class CartaMayorOMenor {
 	      
 	      while (true) {  // Bucle termina cuando la predicción es incorrecta.
 	         
-	         /* Obtiene la predicción del usuario, 'G' or 'P' (or 'g' or 'p'). */
+	         //Obtiene la predicción del usuario, 'G' o 'P' (o 'g' o 'p').
 	         
 	         System.out.print("¿La siguiete carta es más Grande (G) o pequeña (P)?  ");
 	         do {
@@ -105,7 +105,7 @@ public class CartaMayorOMenor {
 	         if (siguienteCarta.getValor() == cartaActual.getValor()) {
 	            System.out.println("El valor es el mismo que el de la carta previa.");
 	            System.out.println("Lo siento. Predicción incorrecta.");
-	            break;  // End the game.
+	            break;  // Fin del juego
 	         }
 	         else if (siguienteCarta.getValor() > cartaActual.getValor()) {
 	            if (prediccion == 'G') {
@@ -124,13 +124,13 @@ public class CartaMayorOMenor {
 	            }
 	            else {
 	                System.out.println("Tu predicción fue incorrecta.");
-	                break;  // fin de la partida.
+	                break;  //Fin del juego
 	            }
 	         }
 	         
 	         /* Actualiza para el siguiente ciclo del bucle, siguienteCarta
 	            pasa a ser cartaActual, que es la que el usuario ahora ve,
-	           , y la siguienteCarta será la siguiente carta en la baraja 
+	           y la siguienteCarta será la siguiente carta en la baraja 
 	           después de que el usuario haga su predicción.
 	        */
 	         
@@ -148,6 +148,6 @@ public class CartaMayorOMenor {
 	      
 	      return prediccionCorrecta;
 	      
-	   }  // find jugar()
+	   }  // fin jugar()
 
 }

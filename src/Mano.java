@@ -1,8 +1,9 @@
 
 /**
  * Un objeto de tipo Mano representa una mano de cartas.  Las
- * cartas pertenecen a la clase Carta. Una mano está vacía cuando se crea
- * ,y con posterioridad se le puede añadir un número cartas.
+ * cartas pertenecen a la clase Carta. 
+ * Una mano está vacía cuando se crea,y con posterioridad 
+ * se le puede añadir un número cartas.
  */
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Mano {
     /**
      * Borra todas las cartas de la mano, dejando esta vacía.
      */
-    public void clear() {
+    public void limpia() {
         mano.clear();
     }
 
@@ -30,7 +31,7 @@ public class Mano {
      * @param c la carta añadida (no null).
      * @throws NullPointerException si el parámetro c es null.
      */
-    public void addCarta(Carta c) {
+    public void cogeCarta(Carta c) {
         if (c == null)
             throw new NullPointerException("No puedes añadir una carta null a la mano.");
         mano.add(c);
@@ -41,7 +42,7 @@ public class Mano {
      * @param c la Carta a ser borrada.  No hace nada si c es null o la 
      * carta no está en la mano.
      */
-    public void borraCarta(Carta c) {
+    public void quitaCarta(Carta c) {
         mano.remove(c);
     }
 
@@ -53,7 +54,7 @@ public class Mano {
      * en la mano, esto es, si la posición es menor que 0 o mayor o igual que el 
      * número de cartas en la mano.
      */
-    public void borraCarta(int posicion) {
+    public void quitaCarta(int posicion) {
         if (posicion < 0 || posicion >= mano.size())
             throw new IllegalArgumentException("Posición no existe en la mano: "
                     + posicion);
@@ -81,9 +82,8 @@ public class Mano {
     }
 
     /**
-     * Ordena las cartas de la mano con las cartas del mismo palo juntas
-     * ,ordenadas por su valor.
-     * Notea: es as tiene el valor menor, 1.
+     * Ordena las cartas de la mano por palo y valor
+     * Nota: el as tiene el valor menor, 1.
      */
     public void ordenaPorPalo() {
         ArrayList<Carta> nuevaMano = new ArrayList<Carta>();
@@ -105,9 +105,7 @@ public class Mano {
     }
 
     /**
-     * Ordena cartas de la mano con las cartas por su valor. Cartas con mismo valor
-     * son ordenadas por su palo.  
-     * Note that aces are considered to have the lowest value, 1.
+     * Ordena cartas de la mano valor y palo. 
      */
     public void ordenaPorValor() {
         ArrayList<Carta> nuevaMano = new ArrayList<>();

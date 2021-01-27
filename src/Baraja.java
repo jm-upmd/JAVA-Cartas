@@ -12,15 +12,15 @@ public class Baraja {
     private Carta[] baraja;
 
     /**
-     * Guarda el númeor de cartas que ya han sido repartidas
-     * .
+     * Guarda el númeor de cartas que ya han sido repartidas.
      */
     private int cartasUsadas;
 
     /**
-     * Construye una baraja normal de 52 cartas.  Inicialmente, las cartas
-     * están ordenadas. El método barajar() puede ser llamado para hacer el orden
-     * aleatorio (Observar que "new Baraja()" is equivalente a new Baraja(false)
+     * Construye una baraja normal de 52 cartas, son comodines.
+     * Inicialmente, las cartas están ordenadas. 
+     * El método barajar() puede ser llamado para hacer el orden
+     * aleatorio (Observar que "new Baraja()" es equivalente a new Baraja(false)
      */
     
     public Baraja() {
@@ -30,8 +30,8 @@ public class Baraja {
     /**
      * Construye una baraja de cartas de pocker. La baraja contiene
      * las usuales 52 cartas y opcionalmente puede contener dos comodines adicionales,
-     * para un total de 54 cartas.  Inicialmente las cartas están ordenadas
-     * El método barajar() puede ser llamado para hacer al orden aleatorio.
+     * para un total de 54 cartas. Inicialmente las cartas están ordenadas
+     * El método barajar() puede ser llamado para hacer el orden aleatorio.
      * @param incluyeComodines si true, se añaden dos comodines a la baraja; si false,
      * no hay comodines en la baraja.
      */
@@ -40,17 +40,22 @@ public class Baraja {
             baraja = new Carta[54];
         else
             baraja = new Carta[52];
+       
         int contCar = 0; // Número de cartas creadas.
-        for ( int palo = 0; palo <= 3; palo++ ) {
+        
+        for ( int palo = Carta.ESPADAS; palo <= Carta.BASTOS; palo++ ) {
             for ( int valor = 1; valor <= 13; valor++ ) {
                 baraja[contCar] = new Carta(valor,palo);
                 contCar++;
             }
         }
+        
         if (incluyeComodines) {
             baraja[52] = new Carta(1,Carta.COMODIN);
             baraja[53] = new Carta(2,Carta.COMODIN);
         }
+        
+        // Baraja recien creada,luego ninguna carta repartida aun.
         cartasUsadas = 0;
     }
 
@@ -59,12 +64,14 @@ public class Baraja {
      * baraja la baraja.
      */
     public void barajar() {
+    	
         for ( int i = baraja.length-1; i > 0; i-- ) {
             int rand = (int)(Math.random()*(i+1));
             Carta temp = baraja[i];
             baraja[i] = baraja[rand];
             baraja[rand] = temp;
         }
+        
         cartasUsadas = 0;
     }
 
@@ -90,8 +97,11 @@ public class Baraja {
     public Carta extraeCarta() {
         if (cartasUsadas == baraja.length)
             throw new IllegalStateException("No quedan cartas en la baraja.");
+        
         cartasUsadas++;
+        
         return baraja[cartasUsadas - 1];
+        
         // Nota:  Las cartas no son literalmente borradas del array que representa
         // la baraja. Usamos la varible cartasUsadas como indice para determinar 
         // cuales aun no han sido extraidas.
