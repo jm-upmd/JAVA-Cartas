@@ -15,8 +15,8 @@ public class CartaMayorOMenor {
 	static Scanner scanner = new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		   
-	      System.out.println("Este programa te permite jugar a un sencillo juego ");
+		
+		  System.out.println("Este programa te permite jugar a un sencillo juego ");
 	      System.out.println("de cartas. Extrae un carta de la baraja");
 	      System.out.println("y tienes que predecir si la siguinete carta de la baraja");
 	      System.out.println("es mayor o menor. Tu puntuación en el juego es el número de");
@@ -61,30 +61,14 @@ public class CartaMayorOMenor {
 	      Baraja baraja = new Baraja();  // Obtiene una nueva barajas de cartas, y 
 	                                 //   y guarda una referencia a ella en la
 	                                 //   variable, baraja.
-	      Mano mano = new Mano();
-	      baraja.barajar();
-	      for (int i = 1; i<= 10; i++)
-	    	  mano.cogeCarta(baraja.extraeCarta());
-	      
-	      for(int i = 0; i <= mano.dameNumCartas()-1; i++) {
-	    	  System.out.println(mano.dameCarta(i).toString());
-	      }
-	      System.out.println("Ordenadas por palo y valor");
-	      
-	      mano.ordenaPorPalo();
-	      for(int i = 0; i <= mano.dameNumCartas()-1; i++) {
-	    	  System.out.println(mano.dameCarta(i).toString());
-	      }
-	      
-	      System.exit(0);
-	      
+	     	      
 	      Carta cartaActual;  // La carta actual, que el usuario ve.
 
 	      Carta siguienteCarta;   // La siguiente carta de la baraja.  El usuario intenta
 	                             //  adivinar si es mayor or menor que la carta actua.
 	                      
 
-	      int prediccionCorrecta ;  // El número de predicciones correctas que
+	      int numPredCorrectas ;  // El número de predicciones correctas que
 	                            	// el usuario ha realizado al final de la partida.
 	                               //  Esta será la puntuación del usuario.
 
@@ -96,7 +80,7 @@ public class CartaMayorOMenor {
 	      					//antes de comenzar una nueva partida.
 	                       
 
-	      prediccionCorrecta = 0;
+	      numPredCorrectas = 0;
 	      cartaActual = baraja.extraeCarta();
 	      System.out.println("La primera carta es " + cartaActual);
 	      
@@ -127,7 +111,7 @@ public class CartaMayorOMenor {
 	         else if (siguienteCarta.getValor() > cartaActual.getValor()) {
 	            if (prediccion == 'G') {
 	                System.out.println("Tu predicción fue correcta.");
-	                prediccionCorrecta++;
+	                numPredCorrectas++;
 	            }
 	            else {
 	                System.out.println("Tu predicción fue incorrecta.");
@@ -137,7 +121,7 @@ public class CartaMayorOMenor {
 	         else {  // siguienteCarta es menor
 	            if (prediccion == 'P') {
 	                System.out.println("Tu predicción fue correcta.");
-	                prediccionCorrecta++;
+	                numPredCorrectas++;
 	            }
 	            else {
 	                System.out.println("Tu predicción fue incorrecta.");
@@ -159,11 +143,11 @@ public class CartaMayorOMenor {
 	      
 	      System.out.println();
 	      System.out.println("El juego ha terminado.");
-	      System.out.println("Has realizado " + prediccionCorrecta 
+	      System.out.println("Has realizado " + numPredCorrectas 
 	                                           + " predicciones correctas.");
 	      System.out.println();
 	      
-	      return prediccionCorrecta;
+	      return numPredCorrectas;
 	      
 	   }  // fin jugar()
 
