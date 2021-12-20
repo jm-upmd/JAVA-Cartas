@@ -43,7 +43,7 @@ public class Baraja {
        
         int contCar = 0; // Número de cartas creadas.
         
-        for ( int palo = Carta.ESPADAS; palo <= Carta.BASTOS; palo++ ) {
+        for ( int palo = Carta.PICAS; palo <= Carta.TREBOLES; palo++ ) {
             for ( int valor = 1; valor <= 13; valor++ ) {
                 baraja[contCar] = new Carta(valor,palo);
                 contCar++;

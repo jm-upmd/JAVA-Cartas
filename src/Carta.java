@@ -10,10 +10,10 @@
 public class Carta {
 	
 	// Códigos para las cuatro palos, mas comodín.
-	public final static int ESPADAS = 0; 
+	public final static int PICAS = 0; 
 	public final static int CORAZONES = 1;
 	public final static int DIAMANTES = 2;
-	public final static int BASTOS = 3;
+	public final static int TREBOLES = 3;
 	public final static int COMODIN = 4;
 	
 	// Códigos para las cuatro figuras y el as.
@@ -72,7 +72,7 @@ public class Carta {
 	 */
 	public Carta(int valor, int palo) {
 		
-		if (palo != ESPADAS && palo != CORAZONES && palo != DIAMANTES && palo != BASTOS && palo != COMODIN)
+		if (palo != PICAS && palo != CORAZONES && palo != DIAMANTES && palo != TREBOLES && palo != COMODIN)
 			throw new IllegalArgumentException("Palo de carta ilegal");
 		if (palo != COMODIN && (valor < 1 || valor > 13))
 			throw new IllegalArgumentException("Valor de la carta ilegal");
@@ -111,14 +111,14 @@ public class Carta {
 	 */
 	public String damePaloComoString() {
 		switch (palo) {
-		case ESPADAS:
-			return "Espadas";
+		case PICAS:
+			return "Picas";
 		case CORAZONES:
 			return "Corazones";
 		case DIAMANTES:
 			return "Diamantes";
-		case BASTOS:
-			return "Bastos";
+		case TREBOLES:
+			return "Tréboles";
 		default:
 			return "Comodín";
 		}
